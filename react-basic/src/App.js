@@ -1,5 +1,6 @@
 import './App.css'
 import Transaction from './components/Transaction';
+import FormComponent from './components/FormComponent';
 
 // inline css
 const Title =()=> <h1 style={{color:'red',textAlign:'center'}}>Income-Spending</h1>
@@ -18,6 +19,7 @@ function App() {
     <section className='container'>
       <Title/>
       <Description/>
+      <FormComponent/>
       <Transaction/>
     </section>
   );
