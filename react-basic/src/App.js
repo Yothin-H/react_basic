@@ -4,6 +4,7 @@ import FormComponent from './components/FormComponent';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import DataContext from './data/DataContext';
+import ReportComponent from './components/ReportComponent';
 
 
 // inline css
@@ -28,9 +29,15 @@ function App() {
     })
   }
   return (
-    <DataContext.Provider value={'Taow'}>
+    <DataContext.Provider value={
+      {
+        income : 50000,
+        expense : -8000
+      }
+    }>
       <section className='container'>
         <Title/>
+        <ReportComponent/>
         <Description/>
         <FormComponent onAddItem={onAddNewItem}/>
         <Transaction items={items}/>
