@@ -1,17 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+
+const Title =()=><h1>Income-Spending</h1>
+const Description =()=> <p>Detail of daily spending</p>
+const Item =()=><li>Transportation <span>-200</span></li>
+const Transaction=()=>{
+  return (
+    <ul>
+      <Item/>
+      <Item/>
+      <Item/>
+      <Item/>
+      <Item/>
+    </ul>
+  );
+}
+
+
 
 function App() {
   return (
     <section>
       <article>
-        <h1>Income-Spending</h1>
-        <p>Detail of daily spending</p>
-        <ul>
-          <li>Transportation <span>-200</span></li>
-          <li>Salary <span>400000</span></li>
-          <li>Food <span>-800</span></li>
-        </ul>
+        <Title/>
+        <Description/>
+        <Transaction/>
       </article>
     </section>
   );
