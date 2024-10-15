@@ -1,9 +1,8 @@
 
-const Item =()=>{
-    const name = 'Hotel'
-    const amount = 5000
+const Item =(props)=>{
+    
 return(
-    <li>{name} <span>-{amount}</span></li>
+    <li>{props.title} <span>{props.amount}</span></li>
 );
 }
 

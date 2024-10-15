@@ -3,11 +3,10 @@ import './Transaction.css';
 const Transaction=()=>{
     return (
       <ul className='Item-list'>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
+        <Item title='Hospital' amount='2000'/>
+        <Item title='Salary' amount='50000'/>
+        <Item title='Transportation' amount='30'/>
+        
       </ul>
     );
   }
