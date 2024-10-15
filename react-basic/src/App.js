@@ -21,10 +21,10 @@ const Title =()=> <h1 style={{color:'red',textAlign:'center'}}>Income-Spending</
 
 function App() {
   const initData=[
-    {id:1,title:'Hospital' ,amount:-2000},
-    {id:2,title:'Salary' ,amount:50000},
-    {id:3,title:'Transportation' ,amount:-30},
-    {id:4,title:'Assurance' ,amount:-3000}
+    // {id:1,title:'Hospital' ,amount:-2000},
+    // {id:2,title:'Salary' ,amount:50000},
+    // {id:3,title:'Transportation' ,amount:-30},
+    // {id:4,title:'Assurance' ,amount:-3000}
   ]
   const [items,setItems]=useState(initData)
   
@@ -49,19 +49,18 @@ function App() {
 
 
   //reducer state
-  const [count, setCount] = useState(0)
+  const [showReport, setShowReport] = useState(false)
   const reducer = (state,action) => {
     switch(action.type){
-      case 'ADD' :
-        return state+action.payload
-      case 'SUB' :
-        return state-action.payload
-      case 'CLEAR' :
-        return 0
+      case 'SHOW' :
+        return setShowReport(true)
+      case 'HIDE' :
+        return setShowReport(false)
+      
     }
   }
 
-  const [result,dispatch]=useReducer(reducer,count)
+  const [result,dispatch]=useReducer(reducer,showReport)
 
   return (
     <DataContext.Provider value={
@@ -72,15 +71,15 @@ function App() {
       }>
       <section className='container'>
         <Title/>
-        <ReportComponent/>
+        {showReport && <ReportComponent/>}
         {/* <Description/> */}
         <FormComponent onAddItem={onAddNewItem}/>
         <Transaction items={items}/>
         <div align='center'>
           <h1>{result}</h1>
-          <button onClick={()=>dispatch({type:'ADD',payload:10})}>Add</button>
-          <button onClick={()=>dispatch({type:'SUB',payload:5})}>Delete</button>
-          <button onClick={()=>dispatch({type:'CLEAR'})}>Clear</button>
+          <button onClick={()=>dispatch({type:'SHOW'})}>Display</button>
+          <button onClick={()=>dispatch({type:'HIDE'})}>Hide</button>
+          
         </div>
       </section>
     </DataContext.Provider>
