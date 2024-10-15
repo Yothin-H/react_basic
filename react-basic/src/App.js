@@ -21,10 +21,10 @@ const Title =()=> <h1 style={{color:'red',textAlign:'center'}}>Income-Spending</
 
 function App() {
   const initData=[
-    // {id:1,title:'Hospital' ,amount:-2000},
-    // {id:2,title:'Salary' ,amount:50000},
-    // {id:3,title:'Transportation' ,amount:-30},
-    // {id:4,title:'Assurance' ,amount:-3000}
+    {id:1,title:'Hospital' ,amount:-2000},
+    {id:2,title:'Salary' ,amount:50000},
+    {id:3,title:'Transportation' ,amount:-30},
+    {id:4,title:'Assurance' ,amount:-3000}
   ]
   const [items,setItems]=useState(initData)
   
