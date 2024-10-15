@@ -2,7 +2,7 @@ import './App.css'
 import Transaction from './components/Transaction';
 import FormComponent from './components/FormComponent';
 import { v4 as uuidv4 } from 'uuid';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import DataContext from './data/DataContext';
 import ReportComponent from './components/ReportComponent';
 
@@ -46,21 +46,46 @@ function App() {
     setReportExpense(expense)
   },[items,reportIncome,reportExpense])
 
+
+
+  //reducer state
+  const [count, setCount] = useState(0)
+  const reducer = (state,action) => {
+    switch(action.type){
+      case 'ADD' :
+        return state+action.payload
+      case 'SUB' :
+        return state-action.payload
+      case 'CLEAR' :
+        return 0
+    }
+  }
+
+  const [result,dispatch]=useReducer(reducer,count)
+
   return (
     <DataContext.Provider value={
       {
         income : reportIncome,
         expense : reportExpense
       }
-    }>
+      }>
       <section className='container'>
         <Title/>
         <ReportComponent/>
         {/* <Description/> */}
         <FormComponent onAddItem={onAddNewItem}/>
         <Transaction items={items}/>
-    </section>
+        <div align='center'>
+          <h1>{result}</h1>
+          <button onClick={()=>dispatch({type:'ADD',payload:10})}>Add</button>
+          <button onClick={()=>dispatch({type:'SUB',payload:5})}>Delete</button>
+          <button onClick={()=>dispatch({type:'CLEAR'})}>Clear</button>
+        </div>
+      </section>
     </DataContext.Provider>
+    
+  
   );
 }
 
