@@ -1,28 +1,41 @@
+import { useState } from 'react'
 import './FormComponent.css'
 const FormComponent=()=>{
+
+    const [title,setTitle]=useState('')
+    const [amount,setAmount]=useState(0)
+
     const inputTitle=(event)=>{
-        console.log(event.target.value)
+        setTitle(event.target.value)
     }
 
     const inputAmount=(event)=>{
-        console.log(event.target.value)
+        setAmount(event.target.value)
     }
 
     const saveItem=(event)=>{
         event.preventDefault()
-        console.log('saved')
+        const itemData={
+            title:title,
+            amount:Number(amount)
+        }
+        console.log(itemData);
+        setTitle('')
+        setAmount(0)
+
     }
+
 
     return(
         <div>
             <form onSubmit={saveItem}>
                 <div className="form-control">
                     <label>List</label>
-                    <input type="text" placeholder="Your list" onChange={inputTitle}/>
+                    <input type="text" placeholder="Your list" onChange={inputTitle} value={title}/>
                 </div>
                 <div className="form-control">
                     <label>Amount</label>
-                    <input type="text" placeholder="(+ received, - paid)" onChange={inputAmount}/>
+                    <input type="text" placeholder="(+ received, - paid)" onChange={inputAmount} value={amount}/>
                 </div>
                 <div className="form-control">
                     <button type="submit" className='btn'>Add yours</button>
