@@ -7,7 +7,8 @@ const ReportComponent=()=>{
     const {income, expense} = useContext(DataContext)
     return (
       <div>
-        <p>Income : {income} <br/>Expense : {expense}</p>
+        <p>Income : {income}</p> 
+        <p>Expense : {expense}</p>
       </div>
     );
   }
