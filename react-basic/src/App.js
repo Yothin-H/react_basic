@@ -18,12 +18,7 @@ const Description =()=>{
 
 
 function App() {
-  const initData=[
-    {id:1,title:'Hospital' ,amount:2000},
-    {id:2,title:'Salary' ,amount:50000},
-    {id:3,title:'Transportation' ,amount:30},
-    {id:4,title:'Assurance' ,amount:3000}
-  ]
+  const initData=[]
 
   const [items,setItems]=useState(initData)
   const onAddNewItem=(newItem)=>{

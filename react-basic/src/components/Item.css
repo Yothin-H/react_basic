@@ -1,0 +1,7 @@
+.paid{
+    border-right: 5px solid red;
+}
+
+.received{
+    border-right: 5px solid green;
+}
