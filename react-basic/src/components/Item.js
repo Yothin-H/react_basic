@@ -1,8 +1,10 @@
+import './Item.css'
+
 const Item =()=>{
     const name = 'Hotel'
     const amount = 5000
 return(
-    <li>{name} <span>-{amount}</span></li>
+    <li className='item'>{name} <span>-{amount}</span></li>
 );
 }
 

@@ -1,8 +1,13 @@
-import './App.css';
 import Item from './components/Item';
 
-const Title =()=><h1>Income-Spending</h1>
-const Description =()=> <p>Detail of daily spending</p>
+// inline css
+const Title =()=> <h1 style={{color:'red',textAlign:'center'}}>Income-Spending</h1>
+const Description =()=>{
+  const design ={color:'brown',textAlign:'center'}
+  return(
+    <p style={design}>Detail of daily spending</p>
+  );
+}
 
 const Transaction=()=>{
   return (
