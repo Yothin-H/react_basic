@@ -43,8 +43,8 @@ function App() {
     const amounts=items.map(items=>items.amount)
     const income = amounts.filter(element=>element>0).reduce((total,element)=>total+=element,0)
     const expense = amounts.filter(element=>element<0).reduce((total,element)=>total+=element,0)*-1
-    setReportIncome(income)
-    setReportExpense(expense)
+    setReportIncome(income.toFixed(2))
+    setReportExpense(expense.toFixed(2))
   },[items,reportIncome,reportExpense])
 
 

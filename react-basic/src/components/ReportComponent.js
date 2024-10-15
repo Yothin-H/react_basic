@@ -9,7 +9,7 @@ const ReportComponent=()=>{
     return (
       <div>
         <h4>Available budget</h4>
-        <h1> ฿{income-expense}</h1>
+        <h1> ฿{(income-expense).toFixed(2)}</h1>
         <div className="report-container">
             <div>
                 <h3>Income</h3>
