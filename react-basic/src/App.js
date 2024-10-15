@@ -1,4 +1,5 @@
-import Item from './components/Item';
+import './App.css'
+import Transaction from './components/Transaction';
 
 // inline css
 const Title =()=> <h1 style={{color:'red',textAlign:'center'}}>Income-Spending</h1>
@@ -9,28 +10,15 @@ const Description =()=>{
   );
 }
 
-const Transaction=()=>{
-  return (
-    <ul>
-      <Item/>
-      <Item/>
-      <Item/>
-      <Item/>
-      <Item/>
-    </ul>
-  );
-}
 
 
 
 function App() {
   return (
-    <section>
-      <article>
-        <Title/>
-        <Description/>
-        <Transaction/>
-      </article>
+    <section className='container'>
+      <Title/>
+      <Description/>
+      <Transaction/>
     </section>
   );
 }
