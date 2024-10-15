@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect, useReducer } from 'react';
 import DataContext from './data/DataContext';
 import ReportComponent from './components/ReportComponent';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 
 // inline css
@@ -49,18 +50,18 @@ function App() {
 
 
   //reducer state
-  const [showReport, setShowReport] = useState(false)
-  const reducer = (state,action) => {
-    switch(action.type){
-      case 'SHOW' :
-        return setShowReport(true)
-      case 'HIDE' :
-        return setShowReport(false)
+  // const [showReport, setShowReport] = useState(false)
+  // const reducer = (state,action) => {
+  //   switch(action.type){
+  //     case 'SHOW' :
+  //       return setShowReport(true)
+  //     case 'HIDE' :
+  //       return setShowReport(false)
       
-    }
-  }
+  //   }
+  // }
 
-  const [result,dispatch]=useReducer(reducer,showReport)
+  // const [result,dispatch]=useReducer(reducer,showReport)
 
   return (
     <DataContext.Provider value={
@@ -71,16 +72,38 @@ function App() {
       }>
       <section className='container'>
         <Title/>
-        {showReport && <ReportComponent/>}
+        <Router>
+        <div>
+          <ul className='horizontal-menu'>
+            <li>
+              <Link to='/'>Dashboard</Link>
+            </li>
+            <li>
+              <Link to='/insert'>List of Data</Link>
+            </li>
+          </ul>
+          <Routes>
+            <Route path='/' element={<ReportComponent/>}/>
+            <Route path='/insert' element={
+              <div>
+                <FormComponent onAddItem={onAddNewItem}/>
+                <Transaction items={items}/>
+              </div>
+            }/>
+          </Routes>
+        </div>
+        </Router>
+        {/* {showReport && <ReportComponent/>} */}
+        {/* <ReportComponent/> */}
         {/* <Description/> */}
-        <FormComponent onAddItem={onAddNewItem}/>
-        <Transaction items={items}/>
-        <div align='center'>
+        {/* <FormComponent onAddItem={onAddNewItem}/> */}
+        {/* <Transaction items={items}/> */}
+        {/* <div align='center'>
           <h1>{result}</h1>
           <button onClick={()=>dispatch({type:'SHOW'})}>Display</button>
           <button onClick={()=>dispatch({type:'HIDE'})}>Hide</button>
           
-        </div>
+        </div> */}
       </section>
     </DataContext.Provider>
     
