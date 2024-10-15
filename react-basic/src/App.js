@@ -3,6 +3,7 @@ import Transaction from './components/Transaction';
 import FormComponent from './components/FormComponent';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
+import DataContext from './data/DataContext';
 
 
 // inline css
@@ -27,12 +28,14 @@ function App() {
     })
   }
   return (
-    <section className='container'>
-      <Title/>
-      <Description/>
-      <FormComponent onAddItem={onAddNewItem}/>
-      <Transaction items={items}/>
+    <DataContext.Provider value={'Taow'}>
+      <section className='container'>
+        <Title/>
+        <Description/>
+        <FormComponent onAddItem={onAddNewItem}/>
+        <Transaction items={items}/>
     </section>
+    </DataContext.Provider>
   );
 }
 
