@@ -4,11 +4,10 @@ import { useContext } from "react";
 
 const ReportComponent=()=>{
     // const name = useContext(DataContext)
+    const {income, expense} = useContext(DataContext)
     return (
       <div>
-        <DataContext.Consumer>
-            {context=><p>Income : {context.income} Expense : {context.expense}</p>}
-        </DataContext.Consumer>
+        <p>Income : {income} <br/>Expense : {expense}</p>
       </div>
     );
   }
