@@ -37,13 +37,18 @@ import reportWebVitals from './reportWebVitals';
 
 
 //External Component
-import HelloComponent from './components/HelloComponent';
+// import HelloComponent from './components/HelloComponent';
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <HelloComponent/>
+// );
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <HelloComponent/>
+  <App/>
 );
-
 
 
 
