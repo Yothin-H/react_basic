@@ -11,6 +11,8 @@ const Transaction=()=>{
       <ul className='Item-list'>
         {data.map(element=>{
             return <Item title={element.title} amount={element.amount} />
+            // or 
+            // return <Item {...element} />
         }
         )}
       </ul>
